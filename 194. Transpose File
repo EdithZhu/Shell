@@ -1,0 +1,12 @@
+# Read from the file file.txt and print its transposed content to stdout.
+awk '{
+    for (i = 1; i <= NF; i++)
+        vector[NR, i] = $i
+} END {
+    for (i = 1; i <= NF; i++){
+        line = vector[1, i]
+        for (j = 2; j <= NR; j++)
+            line = line" "vector[j, i]
+        print line
+        }
+}' file.txt
