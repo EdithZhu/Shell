@@ -1,0 +1,8 @@
+cat words.txt | xargs printf "%s\n" | sort | uniq -c | sort -nr | awk '{print $2,$1}'
+
+cat - Displays the contents of the file
+xargs - Applies the printf function to every line in the output of cat
+sort - Sorts the current buffer piped to it
+uniq -c - Displays the counts of each line in the buffer
+sort -nr - Reverse sorts the output via the counts in the previous operation
+awk - Prints the 2nd column and then the 1st column based on the problem requirement.
